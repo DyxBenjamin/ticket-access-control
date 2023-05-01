@@ -5,14 +5,16 @@ const RawDataSchema = new Schema({
 	key: {
 		type: String,
 		required: true,
+		index: true,
+		unique: true,
+		immutable: true,
 	},
-	Data: {
+	data: {
 		type: Object,
 		required: true,
 	},
 	labels: {
 		type: [String],
-		required: true,
 	},
 	createAt: {
 		type: Number,
@@ -24,6 +26,6 @@ const RawDataSchema = new Schema({
 	}
 })
 
-const RawDataModel = models.RawData || model("RawData", RawDataSchema);
+const RawData = models.RawData || model("RawData", RawDataSchema);
 
-export default RawDataModel;
+export default RawData;
