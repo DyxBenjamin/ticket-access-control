@@ -1,4 +1,3 @@
-import Users from "@api/data/models/UserModel";
 import RawData from "@api/data/models/RawDataModel";
 import saveOnCollection from "@api/data/actions/saveOnCollection";
 

@@ -26,6 +26,6 @@ const RawDataSchema = new Schema({
 	}
 })
 
-const RawData = models.RawData || model("RawData", RawDataSchema);
+const RawData = models.RawData || model("RawData", RawDataSchema, "rawData");
 
 export default RawData;

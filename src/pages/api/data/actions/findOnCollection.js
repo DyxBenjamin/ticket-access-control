@@ -1,5 +1,4 @@
 import {isEmpty} from "lodash";
-import Users from "@api/data/models/UserModel";
 
 export default function findOnCollection({req, res, collection}){
 	const {body} = req;

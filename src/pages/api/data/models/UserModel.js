@@ -12,11 +12,6 @@ const UserSchema = new Schema({
 		},
 		lastName: {
 			type: String,
-			required: true,
-		},
-		age: {
-			type: Number,
-			required: true,
 		},
 	},
 	status: {
@@ -25,10 +20,18 @@ const UserSchema = new Schema({
 		enum: ["active", "inactive", "deleted", "banned", "pending", "suspended" ],
 		required: true,
 	},
-	emails: {
-		type: [String],
-		required: true,
-	},
+	emails: [
+		{
+			address: {
+				type: String,
+				required: true,
+			},
+			verified: {
+				type: Boolean,
+				default: false,
+			},
+		}
+	],
 	phone: {
 		type: String,
 		required: true,
