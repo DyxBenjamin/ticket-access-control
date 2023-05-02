@@ -4,7 +4,7 @@ import moment from "moment";
 const UserSchema = new Schema({
 	profile: {
 		image: {
-			type: Object,
+			type: String,
 		},
 		name: {
 			type: String,
@@ -18,7 +18,6 @@ const UserSchema = new Schema({
 		type: String,
 		default: "pending",
 		enum: ["active", "inactive", "deleted", "banned", "pending", "suspended" ],
-		required: true,
 	},
 	emails: [
 		{
@@ -34,12 +33,10 @@ const UserSchema = new Schema({
 	],
 	phone: {
 		type: String,
-		required: true,
 	},
 	roles: {
 		type: [String],
 		default: ["user"],
-		required: true,
 	},
 	subscriptions: {
 		type: [Object],

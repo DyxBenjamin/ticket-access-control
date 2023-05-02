@@ -15,5 +15,5 @@ const VerificationTokenSchema = new Schema({
 	},
 })
 
-const VerificationToken = models.VerificationToken || model("VerificationToken", VerificationTokenSchema);
-export default VerificationToken;
+const VerificationTokens = models.VerificationToken || model("VerificationToken", VerificationTokenSchema);
+export default VerificationTokens;
