@@ -12,7 +12,7 @@ export default function Index(){
 	const { status } = useSession({
 		required: true,
 		onUnauthenticated() {
-			router.push('/auth/login')
+			router.push('/')
 		},
 	})
 

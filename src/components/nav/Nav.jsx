@@ -51,7 +51,7 @@ export default function Nav({children}) {
 		<main style={{width: '100vw', height:'100vh', display:'flex', flexDirection:'row'}} >
 			<Box sx={{ width:'300px', height:'100%', padding:'0 14px', background:"black", borderRight:'2px solid #333333' }} >
 				<Box sx={{ height:'100px', display:'grid', placeContent:'center' }} >
-					<Link href={'/dashboard'} style={{textDecoration:'none'}} >
+					<Link href={'/app/main'} style={{textDecoration:'none'}} >
 						<Typography variant={'h5'} >
 							DevClusters
 						</Typography>

@@ -36,6 +36,7 @@ const UserSchema = new Schema({
 	},
 	roles: {
 		type: [String],
+		enum: ["user", "client", "admin", "boss"],
 		default: ["user"],
 	},
 	subscriptions: {
