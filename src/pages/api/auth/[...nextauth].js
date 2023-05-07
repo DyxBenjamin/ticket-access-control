@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
-import MongooseAdapter from "@api/auth/adapters/mongooseAdapter";
+import MongooseAdapter from "@server/adapters/mongooseAdapter";
 
 export const authOptions = {
 	adapter: MongooseAdapter(),

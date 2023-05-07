@@ -1,9 +1,9 @@
-import userServicesIndex from "@api/services/users";
-import connectMongo from "@api/data/database";
-const connection = connectMongo();
+import userServicesIndex from "@server/services/users";
+import connectMongo from "@server/data/database";
+await connectMongo();
 
 export default function handler( req, res ) {
-	const { method, query, headers } = req
+	const { method, query } = req
 	const { controller } = query;
 
 	if (method !== "POST") return res.status(405).json({ error: 'Method Not Allowed' });

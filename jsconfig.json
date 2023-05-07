@@ -13,7 +13,8 @@
       "@constants/*": ["./src/constants/*"],
       "@context/*": ["./src/context/*"],
       "@data/*": ["./src/data/*"],
-      "@public/*": ["./public/*"]
+      "@public/*": ["./public/*"],
+      "@server/*": ["./server/*"]
     }
   }
 }

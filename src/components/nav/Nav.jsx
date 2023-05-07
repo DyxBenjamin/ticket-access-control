@@ -6,7 +6,15 @@ import _ from 'lodash';
 
 const styles= {
 	tab: {
-		height:'50px', background:'white', width:'100%', borderRadius:'2px', display:'flex', alignItems:'center', padding:'0 1rem', boxSizing:'border-box', cursor:'pointer'
+    background:'transparent',
+    width:'100%', 
+    borderRadius:'16px', 
+    display:'flex', 
+    alignItems:'center', 
+    padding:'12px 24px',
+    boxSizing:'border-box', 
+    cursor:'pointer',
+    fontWeight:'500',
 	}
 }
 
@@ -62,7 +70,7 @@ export default function Nav({children}) {
 						_.map( Routes, (route, index) => {
 							return(
 								<Link href={route.path} key={index} style={{textDecoration:'none', fontWeight:'bold'}}  >
-									<Box sx={{ ...styles.tab, background: isActiveRoute(route.path) ? '#79ee94' : 'white', color: isActiveRoute(route.path) ? 'white' : '#2e733e' }} >
+									<Box sx={{ ...styles.tab, background: isActiveRoute(route.path) ? '#79ee94' : 'transparent', color: isActiveRoute(route.path) ? 'white' : '#2e733e' }} >
 										{route.icon}
 										<Typography variant={'body1'}>
 											{route.name}

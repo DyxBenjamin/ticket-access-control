@@ -1,4 +1,4 @@
-import Users from "@api/data/models/UserModel";
+import Users from "@server/data/models/UserModel";
 
 export async function authorization(req, res, db, authorize, callback) {
 
