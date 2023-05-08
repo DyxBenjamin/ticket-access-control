@@ -31,7 +31,7 @@ export default function MongooseAdapter() {
 			return Users.findOne({email});
 		},
 		async getUserByAccount(data) {
-			const {providerAccountId, provider} = data;
+			const {providerAccountId, provider} = data || {};
 			await connectMongo();
 			const account = await Accounts.findOne({providerAccountId, provider});
 			if (!account) return null;
@@ -64,7 +64,7 @@ export default function MongooseAdapter() {
 		},
 		async createSession(data) {
 			await connectMongo();
-			return await Sessions.create(data);
+			return Sessions.create(data);
 		},
 		async getSessionAndUser(sessionToken) {
 			await connectMongo();
@@ -88,7 +88,7 @@ export default function MongooseAdapter() {
 		},
 		async createVerificationToken(data) {
 			await connectMongo();
-			return await VerificationTokens.create(data);
+			return VerificationTokens.create(data);
 		},
 		async useVerificationToken(data) {
 			const {identifier, token} = data;

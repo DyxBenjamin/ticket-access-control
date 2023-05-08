@@ -24,6 +24,7 @@
     "@react-three/fiber": "^8.13.0",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mongodb": "^5.4.0",

@@ -8,6 +8,12 @@ const defaultTheme = createTheme({
 		secondary: {
 			main: '#337ab7',
 		},
+		white:{
+			main: '#FFF',
+		},
+		black:{
+			main: '#000',
+		}
 	},
 });
 
