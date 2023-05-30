@@ -1,0 +1,26 @@
+### find all
+POST http://localhost:3000/api/v1/users/all
+Content-Type: application/json
+
+### find by id
+POST http://localhost:3000/api/v1/users/find
+Content-Type: application/json
+
+{
+	"filters": {
+		"links.accessLink": "benjamin-garrido"
+	}
+}
+
+### create
+POST http://localhost:3000/api/v1/guests/create
+Content-Type: application/json
+
+{
+    "profile": {
+        "name": "Benjamín",
+        "lastName": "Garrido",
+        "secondLastName": "González"
+    },
+    "userId": "64757b0e5ef643c465f2a24e"
+}

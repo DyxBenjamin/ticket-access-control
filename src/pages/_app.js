@@ -1,7 +1,6 @@
 import '@/styles/globals.css'
 import {ThemeProvider} from "@mui/material";
 import defaultTheme from "@styles/themes/defaultTheme";
-import {SessionProvider} from "next-auth/react";
 
 export default function App({Component, pageProps}) {
 
@@ -9,9 +8,7 @@ export default function App({Component, pageProps}) {
 
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<SessionProvider session={pageProps.session}>
-				{ getLayout(<Component {...pageProps} />) }
-			</SessionProvider>
+			{ getLayout(<Component {...pageProps} />) }
 		</ThemeProvider>
 	)
 }

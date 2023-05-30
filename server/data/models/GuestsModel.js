@@ -1,11 +1,13 @@
 import {model, models, Schema} from "mongoose";
 import moment from "moment";
-import _ from "lodash";
+import _ from 'lodash';
 
-const UserSchema = new Schema({
+const GuestSchema = new Schema({
 	profile: {
-		image: {
+		honorificPrefix: {
 			type: String,
+			enum: ['', 'Sr.', 'Sra.', 'Srta.', 'Dr.', 'Dra.', 'Ing.', 'Lic.', 'Arq.', 'Mtro.', 'Mtra.', 'C.', 'C.P.', 'Profr.', 'Profra.', 'Padre', 'Madre', 'Rvdo.'],
+			default: '',
 		},
 		name: {
 			type: String,
@@ -22,35 +24,22 @@ const UserSchema = new Schema({
 			type: String,
 		},
 	},
-	status: {
-		type: String,
-		default: "active",
-		enum: ["active", "inactive", "deleted", "banned", "pending", "suspended" ],
-	},
-	emails: [
-		{
-			address: {
-				type: String,
-			},
-			verified: {
-				type: Boolean,
-				default: false,
-			},
-		}
-	],
-	phone: {
-		type: String,
-	},
 	roles: {
 		type: [String],
 		enum: ["user", "client", "admin", "boss"],
-		default: ["user"],
+		default: ["client"],
 	},
 	subscriptions: {
 		type: [Object],
 	},
 	accessLink: {
-		type: String
+		type: String,
+		immutable: true,
+		unique: true,
+	},
+	userId:{
+		type: Schema.Types.ObjectId,
+		required: true,
 	},
 	createAt: {
 		type: Number,
@@ -62,12 +51,11 @@ const UserSchema = new Schema({
 	}
 })
 
-
-UserSchema.pre('save', function(next) {
+GuestSchema.pre('save', function(next) {
 	this.accessLink = `${_.kebabCase(this.profile.name)}-${_.kebabCase(this.profile.lastName)}`;
 	next();
 });
 
-const Users = models.Users || model("Users", UserSchema);
+const Guest = models.Guest || model("Guest", GuestSchema);
 
-export default Users;
+export default Guest;

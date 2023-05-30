@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -38,6 +42,10 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+}
+
+body{
+  background: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,8 +94,8 @@ body {
 }
 
 body {
-  color: #021b36;
-  background: #e8f4f7;
+  color: #000;
+  background: #fff;
 }
 
 a {

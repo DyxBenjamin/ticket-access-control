@@ -107,8 +107,8 @@ function TabsNavigation({children}){
 					<Image
 						src={Logo}
 						alt="DevClusters Logo"
-						width={32}
-						height={32}
+						width={320}
+						height={320}
 						priority
 					/>
 					<Typography variant={'h6'} sx={{color:'black!important'}} >
