@@ -7,7 +7,7 @@ export default async function fetchStaticData({
 	links
 }) {
 	try {
-		const response = await fetch(`http://localhost:3000/api/v1/${route}`, {
+		const response = await fetch(`${process.env.SERVER_URL}${route}`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

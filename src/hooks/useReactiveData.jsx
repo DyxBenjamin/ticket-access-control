@@ -32,7 +32,7 @@ export default function useReactiveData( {
 		} );
 		
 		if ( !haveNullDeps ) {
-			fetch( `http://localhost:3000/api/v1/${ route }`, {
+			fetch( `${process.env.SERVER_URL}${ route }`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
