@@ -14,6 +14,19 @@ Content-Type: application/json
     "singleton": true
 }
 
+
+### find by accessLink
+POST https://ticket-access-control-dyxbenjamin.vercel.app/api/v1/users/find
+Content-Type: application/json
+
+{
+	"filters": {
+		"accessLink": "benjamin-garrido"
+	},
+	"links": true,
+	"singleton": true
+}
+
 ### create
 POST http://localhost:3000/api/v1/users/create
 Content-Type: application/json

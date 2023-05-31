@@ -6,7 +6,8 @@ export default function extendedCRUD({req, res, config}) {
 	const {collection, links} = config;
 	return {
 		all: async function all() {
-			return collection.find({}).exec();
+			const result = await collection.find({}).exec();
+			res.status( 200 ).json( result );
 		},
 		find: async function find() {
 			return findOnCollection({req, res, config})
