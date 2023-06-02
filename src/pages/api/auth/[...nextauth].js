@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import MongooseAdapter from "@server/adapters/mongooseAdapter";
-import _ from "lodash"
+import {getStripeInstance} from "@api/v1/payments/checkout-sessions";
 
 
 export const authOptions = {
@@ -13,17 +13,40 @@ export const authOptions = {
 		}),
 	],
 	secret: process.env.NEXTAUTH_SECRET,
-	session: { strategy: "jwt" },
+	session: { strategy: "database" },
 	callbacks: {
-		async jwt({token, account}) {
-			if (account?.provider === 'github' && account?.access_token) {
-				token.accessToken = account.access_token
-			}
-			const user = await MongooseAdapter().getUserByAccount(account)
-			if (user) {
-				token.user = _.pick(user, ["_id", "profile", "roles", "status"])
-			}
-			return token
+		async session({ session, token, user }) {
+			// console.log('%c << 📌 data >>', 'color: white; font-size: 12px');
+			// console.log(data);
+
+			// console.log('%c << ▶️ session >>', 'color: white; font-size: 16px');
+			//
+			// console.log('%c << 📌 session >>', 'color: white; font-size: 12px');
+			// console.log(session);
+			//
+			// console.log('%c << 📌 token >>', 'color: white; font-size: 12px');
+			// console.log(token);
+			//
+			// console.log('%c << 📌 user >>', 'color: white; font-size: 12px');
+			// console.log(user);
+
+			// session.user = user.user
+			return session
+		}
+	},
+	events: {
+		createUser: async ({ user }) => {
+			const stripe = getStripeInstance();
+
+
+			// await stripe.customers
+			// 	.create({
+			// 		email: user.email })
+			// 	.then(async (customer) => {
+			// 		return await MongooseAdapter().updateUser(user.id, {
+			// 			stripeCustomerId: customer.id,
+			// 		})
+			// 	});
 		},
 	},
 	pages: {

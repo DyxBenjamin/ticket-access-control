@@ -12,11 +12,22 @@ const PrivateRoutes = [
 
 export default withAuth(
     function middleware(req) {
+
+        console.log('%c << 📌 re >>', 'color: white; font-size: 12px');
+        console.log(req);
+
     },
     {
         callbacks: {
             authorized: ({req, token}) => {
-                if (!token) return false;
+
+                console.log('%c << 📌 req >>', 'color: white; font-size: 12px');
+                console.log(req.body);
+
+                console.log('%c << 📌 token >>', 'color: white; font-size: 12px');
+                console.log(token);
+
+                if (!token) return true;
                 const { pathname } = req.nextUrl;
                 const route = PrivateRoutes.find((route) => {
                     if (route.exact) return route.path === pathname;

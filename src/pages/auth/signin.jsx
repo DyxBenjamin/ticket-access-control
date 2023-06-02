@@ -11,6 +11,9 @@ export default function Signin() {
     const { status} = useSession()
     const router = useRouter()
 
+    console.log('%c << 📌 s >>', 'color: white; font-size: 12px');
+    console.log(status);
+
     if (status === 'authenticated') {
         router.push('/app').then()
     }

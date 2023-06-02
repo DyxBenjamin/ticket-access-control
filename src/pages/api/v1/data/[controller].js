@@ -1,24 +1,74 @@
-import connectMongo from "@server/data/database";
-import DataServicesIndex from "@server/services/data";
-await connectMongo();
+import controller from '@server/components/Controller';
+import DataServicesIndex from '@server/services/data';
+import RawData from '@server/data/models/RawDataModel';
 
-export default function handler( req, res ) {
-	const { method, query } = req
-	const { controller } = query;
+// [serviceName]: {
+// 	    enabled: boolean, // true means service is enabled
+// 		auth: boolean, // true means authentication required
+// 		override: ({ req, res, config }) => {}, // function means override default service
+// 		permissions: string[] | boolean(false), // false means no permissions required
+//      mute: boolean, // true means only return status code
+//      preProcessRequest: (request) => {}, // function means process request before send to server
+//      postProcessResponse: (response) => {}, // function means process response before send to client
+// 		debug: boolean, // true means return debug info
+// 		cacheTTl: number | boolean(false), // false means no cache, number means cache time in seconds
+// },
 
-	if (method !== "POST") return res.status(405).json({ error: 'Method Not Allowed' });
-	if (!controller) return res.status(404).json({ error: 'Not Found' });
+export default async function handler( req, res ) {
+	const config = {
+		collection: RawData,
+		customServices: DataServicesIndex,
+		enableServices:{
+			all: {
+				enabled: true,
+				auth: false,
+				permissions: false,
+			},
+			find: {
+				enabled: true,
+				auth: false,
+				permissions: false,
+			},
+			create: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			update: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			remove: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			analyse:{
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			importData:{
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			exportData:{
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			}
+		},
+		enableChronServices:{
+			clearDocuments: {
+				enabled: true,
+				expression: '0 0 * * *', // every day at 00:00
+				scheduled: true,
+				timezone: 'America/New_York',
+			}
+		}
+	}
 
-	const service = DataServicesIndex[controller];
-	if (!service) return res.status(404).json({ error: 'Not Found' });
-
-	const execute = service({req, res})
-
-	execute
-		.then((result) => {
-			res.status(200).json({ status: 200, result})
-		})
-		.catch((error) => {
-			res.status(500).json(error)
-		});
+	await controller({req, res, config})
 }

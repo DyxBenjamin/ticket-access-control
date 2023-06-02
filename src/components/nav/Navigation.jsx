@@ -16,12 +16,10 @@ import AssistantIcon from '@mui/icons-material/Assistant';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import Fullscreen from "@components/layouts/Fullscreen";
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
-const styles= {
-	tab: {
-
-	}
-}
+const stripePromise = loadStripe('pk_test_51LQI4ZKrIfQBoZAFlzh0ysY7Gj6ZYxqC1qigICTUTNhi7VvUqdzVK6FDXMwsZruXkKWRuLPtTUWL4FqfTPGxZrl7007ie13QQT');
 
 const Routes = [
 	{
@@ -41,7 +39,7 @@ const Routes = [
 	},
 	{
 		name: 'Shop',
-		path: '/app/tab4',
+		path: '/app/shop',
 		icon: <ShoppingBagIcon />,
 	},
 	{
@@ -147,10 +145,18 @@ export default function Navigation({children}) {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
+	const options = {
+		clientSecret: process.env.STRIPE_SECRET_KEY
+	};
+
 	if(!matches){
-		return <TabsNavigation>
-			{children}
-		</TabsNavigation>
+		return (
+			<TabsNavigation>
+				<Elements stripe={stripePromise} options={options}>
+					{children}
+				</Elements>
+			</TabsNavigation>
+		)
 	}
 
 	return (
@@ -168,7 +174,7 @@ export default function Navigation({children}) {
 						_.map( Routes, (route, index) => {
 							return(
 								<Link href={route.path} key={index} style={{textDecoration:'none', fontWeight:'bold'}}  >
-									<Box sx={{ ...styles.tab, background: isActiveRoute(route.path) ? '#79ee94' : 'transparent', color: isActiveRoute(route.path) ? 'white' : '#2e733e' }} >
+									<Box sx={{ background: isActiveRoute(route.path) ? '#79ee94' : 'transparent', color: isActiveRoute(route.path) ? 'white' : '#2e733e' }} >
 										{route.icon}
 										<Typography variant={'body1'}>
 											{route.name}
@@ -181,7 +187,9 @@ export default function Navigation({children}) {
 				</Box>
 			</Box>
 			<Box sx={{ width: '100%', height:'100%', display:'flex' }} >
-				{children}
+				<Elements stripe={stripePromise} options={options}>
+					{children}
+				</Elements>
 			</Box>
 		</main>
 	)

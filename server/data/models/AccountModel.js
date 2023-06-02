@@ -2,7 +2,7 @@ import {model, models, Schema} from "mongoose";
 
 const AccountSchema = new Schema({
 	userId: {
-		type: String,
+		type: Schema.Types.ObjectId,
 		trim: true,
 	},
 	type: {
@@ -53,6 +53,9 @@ const AccountSchema = new Schema({
 		type: String,
 		trim: true,
 	},
+	refresh_token_expires_in:{
+		type: Number,
+	}
 });
 
 const Accounts = models.Account || model("Account", AccountSchema);

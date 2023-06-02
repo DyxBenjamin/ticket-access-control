@@ -16,6 +16,9 @@ const RawDataSchema = new Schema({
 	labels: {
 		type: [String],
 	},
+	metadata: {
+		type: Object,
+	},
 	createAt: {
 		type: Number,
 		default: moment().valueOf(),

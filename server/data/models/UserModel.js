@@ -1,5 +1,6 @@
 import {model, models, Schema} from "mongoose";
 import moment from "moment";
+import _ from "lodash";
 
 const UserSchema = new Schema({
 	profile: {
@@ -10,20 +11,26 @@ const UserSchema = new Schema({
 			type: String,
 			required: true,
 		},
+		secondName: {
+			type: String,
+		},
 		lastName: {
+			type: String,
+			required: true,
+		},
+		secondLastName: {
 			type: String,
 		},
 	},
 	status: {
 		type: String,
-		default: "pending",
+		default: "active",
 		enum: ["active", "inactive", "deleted", "banned", "pending", "suspended" ],
 	},
 	emails: [
 		{
 			address: {
 				type: String,
-				required: true,
 			},
 			verified: {
 				type: Boolean,
@@ -42,6 +49,9 @@ const UserSchema = new Schema({
 	subscriptions: {
 		type: [Object],
 	},
+	accessLink: {
+		type: String
+	},
 	createAt: {
 		type: Number,
 		default: moment().valueOf(),
@@ -51,6 +61,12 @@ const UserSchema = new Schema({
 		default: moment().valueOf(),
 	}
 })
+
+
+UserSchema.pre('save', function(next) {
+	this.accessLink = `${_.kebabCase(this.profile.name)}-${_.kebabCase(this.profile.lastName)}`;
+	next();
+});
 
 const Users = models.Users || model("Users", UserSchema);
 
