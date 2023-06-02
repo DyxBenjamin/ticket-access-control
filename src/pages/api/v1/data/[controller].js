@@ -60,14 +60,6 @@ export default async function handler( req, res ) {
 				permissions: ['admin', 'editor'],
 			}
 		},
-		enableChronServices:{
-			clearDocuments: {
-				enabled: true,
-				expression: '0 0 * * *', // every day at 00:00
-				scheduled: true,
-				timezone: 'America/New_York',
-			}
-		}
 	}
 
 	await controller({req, res, config})
