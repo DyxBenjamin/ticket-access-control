@@ -39,7 +39,7 @@ export default async function handler( req, res ) {
 				auth: true,
 				permissions: ['admin', 'editor'],
 			},
-			remove: {
+			delete: {
 				enabled: true,
 				auth: true,
 				permissions: ['admin', 'editor'],

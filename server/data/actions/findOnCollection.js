@@ -14,36 +14,23 @@ import _ from 'lodash';
 //  links: Boolean // Optional - Default: false - If true, it will return the linked documents
 // }
 export default async function findOnCollection( {
-	req,
-	res,
-	config
+	                                                filters,
+	                                                projection,
+	                                                options,
+	                                                singleton,
+	                                                enableLinks,
+	                                                config
 } ) {
-	const { body } = req;
 	const {
 		collection,
 		links
 	} = config;
 	
-	if ( !body ) {
-		res.status( 400 )
-		   .json( { error: 'No body provided.' } );
-	}
-	
-	const {
-		filters,
-		projection,
-		options,
-		singleton,
-		links: enableLinks
-	} = body;
-	
 	if ( !filters ) {
-		res.status( 400 )
-		   .json( { error: 'No filters provided.' } );
+		return { error: 'No filters provided.' };
 	}
 	if ( _.isEmpty( filters ) ) {
-		res.status( 400 )
-		   .json( { error: 'Empty filter provided.' } );
+		return { error: 'Empty filter provided.' };
 	}
 	
 	let result = singleton
@@ -55,8 +42,7 @@ export default async function findOnCollection( {
 			.exec();
 	
 	if ( !result ) {
-		return res.status( 404 )
-		          .json( { error: 'Not Found' } );
+		return { error: 'Empty' }
 	}
 	
 	if ( enableLinks && links ) {
@@ -66,17 +52,9 @@ export default async function findOnCollection( {
 		} );
 		result = result.toObject();
 		result = { ...result, ...linkedDocuments };
-		return res.status( 200 )
-		          .json( {
-			          status: 200,
-			          result
-		          } );
+		return result;
 	} else {
-		return res.status( 200 )
-		          .json( {
-			          status: 200,
-			          result
-		          } );
+		return result;
 	}
 	
 }

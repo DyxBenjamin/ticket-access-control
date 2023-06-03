@@ -52,6 +52,9 @@ const UserSchema = new Schema({
 	accessLink: {
 		type: String
 	},
+	deleteAt: {
+		type: Number,
+	},
 	createAt: {
 		type: Number,
 		default: moment().valueOf(),

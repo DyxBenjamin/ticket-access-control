@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '@styles/globals.css'
 import {ThemeProvider} from "@mui/material";
 import defaultTheme from "@styles/themes/defaultTheme";
 import {SessionProvider} from "next-auth/react";

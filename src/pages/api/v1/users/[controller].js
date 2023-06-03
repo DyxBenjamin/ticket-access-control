@@ -7,7 +7,49 @@ export default async function handler( req, res ) {
 	const config = {
 		collection: Users,
 		links: UserLinks,
-		customServices: userServicesIndex
+		customServices: userServicesIndex,
+		enableServices: {
+			all: {
+				enabled: true,
+				auth: false,
+				permissions: false,
+			},
+			find: {
+				enabled: true,
+				auth: false,
+				permissions: false,
+			},
+			create: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			update: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			delete: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			analyze: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			importData: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			},
+			exportData: {
+				enabled: true,
+				auth: true,
+				permissions: ['admin', 'editor'],
+			}
+		}
 	}
 	await controller({req, res, config})
 }
