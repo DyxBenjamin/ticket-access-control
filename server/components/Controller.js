@@ -19,10 +19,6 @@ export default async function controller({req, res, config}) {
 	
 	let services = generateApiServices( { req, res, config });
 	
-	// if ( config.customServices ) {
-	// 	services = { ...services, ...config.customServices };
-	// }
-	
 	const service = services[ controller ];
 	
 	if ( !service ) {

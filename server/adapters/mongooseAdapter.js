@@ -1,8 +1,8 @@
 import Users from "@server/data/models/UserModel";
 import connectMongo from "@server/data/Database";
-import Accounts from "@server/data/models/AccountModel";
-import Sessions from "@server/data/models/SessionModel";
-import VerificationTokens from "@server/data/models/VerificationTokenModel";
+import Accounts from "@server/data/models/auth/AccountModel";
+import Sessions from "@server/data/models/auth/SessionModel";
+import VerificationTokens from "@server/data/models/auth/VerificationTokenModel";
 
 export default function MongooseAdapter() {
 	return {

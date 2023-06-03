@@ -4,6 +4,7 @@ import updateOnCollection from "@server/data/actions/updateOnCollection";
 import deleteOnCollection from "@server/data/actions/removeOnCollection";
 import analyzeCollection from "@server/data/actions/analyzeCollection";
 import importCollection from "@server/data/actions/importCollection";
+import _ from 'lodash';
 
 
 export default function generateApiServices({req, res, config}) {
@@ -48,6 +49,10 @@ export default function generateApiServices({req, res, config}) {
         }, // export data to file
     }
 
+    _.map(customServices, (customService, key) => {
+        services[key] = async () => customService.service({req, res, config})
+    })
+
     function handleResult(result) {
         if (result.error) {
             res.status(500).json(result)
@@ -64,7 +69,7 @@ export default function generateApiServices({req, res, config}) {
         }
     }
 
-    if (!enableServices[controller].enabled) {
+    if (!enableServices?.[controller]?.enabled && !customServices?.[controller]?.enabled) {
         return {
             [controller]: ({}) => {
                 res.status(404).json({error: 'Disabled'});
