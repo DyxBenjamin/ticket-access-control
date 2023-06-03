@@ -20,7 +20,7 @@ export default async function handler( req, res ) {
 		customServices: DataServicesIndex,
 		enableServices:{
 			all: {
-				enabled: true,
+				enablced: true,
 				auth: false,
 				permissions: false,
 			},
