@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import async from 'async';
 
 
 export default async function findOnCollection( {

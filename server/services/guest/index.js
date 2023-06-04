@@ -1,4 +1,2 @@
-const GuestServicesIndex ={
-}
-
+const GuestServicesIndex ={}
 export default GuestServicesIndex;

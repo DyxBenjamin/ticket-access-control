@@ -15,8 +15,6 @@ export default async function controller({req, res, config}) {
 		return res.status( 404 )
 		          .json( { error: 'Not Found' } );
 	}
-	console.log( '%c << ▶️ controller >>', 'color: white; font-size: 16px' );
-	
 	
 	let services = extendedCRUD( { req, res, config });
 	

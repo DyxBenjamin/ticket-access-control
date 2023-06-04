@@ -1,4 +1,5 @@
-export default async function saveOnCollection( { req, res, collection } ) {
+export default async function saveOnCollection( { req, res, config } ) {
+	const { collection } = config;
 	const { body } = req;
 	const data = new collection( body );
 	const result = await data.save();

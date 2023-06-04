@@ -3,7 +3,7 @@ import saveOnCollection from '@server/data/actions/saveOnCollection';
 
 
 export default function extendedCRUD({req, res, config}) {
-	const {collection, links} = config;
+	const {collection} = config;
 	return {
 		all: async function all() {
 			const result = await collection.find({}).exec();
@@ -13,7 +13,7 @@ export default function extendedCRUD({req, res, config}) {
 			return findOnCollection({req, res, config})
 		},
 		create: async function create() {
-			return saveOnCollection({req, res, collection})
+			return saveOnCollection({req, res, config})
 		},
 		update: async function update() {},
 		remove: async function remove() {},
