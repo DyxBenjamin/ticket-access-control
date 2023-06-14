@@ -1,16 +1,14 @@
-import Guest from '@server/data/models/GuestsModel';
+// [linkName]: {
+// 	type: string // 'one', 'many'
+// 	from: string // 'field name in current collection',
+// 	to: string // 'field name in linked collection'
+// 	collection: mongoose.model, // 'linked collection'
+// 	onDeleted: string // 'cascade', 'nullify', 'restrict', 'archive', 'transfer', 'anonymous', 'setDefault', 'doNothing'
+// 	onCreate: string // 'create', 'update', 'doNothing'
+// 	postProcessDocuments: (document) => {} // Optional - Function to process the linked documents
+//}
 
 
-const UserLinks = {
-	guest: {
-		type: 'many',
-		from: '_id',
-		to: 'userId',
-		collection: Guest,
-		onDeleted: 'cascade', // 'cascade', 'nullify', 'restrict', 'archive', 'transfer', 'anonymous', 'setDefault', 'doNothing'
-		onCreate: 'create', // 'create', 'update', 'doNothing'
-		// transform: (guest) => {}
-	}
-}
+const UserLinks = {}
 
 export default UserLinks

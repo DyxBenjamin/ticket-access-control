@@ -1,5 +1,5 @@
+import controller from '@server/components/Controller';
 import userServicesIndex from "@server/services/users";
-import controller from '@server/middleware/controller';
 import Users from '@server/data/models/UserModel';
 import UserLinks from '@server/data/links/UserLinks';
 
