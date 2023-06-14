@@ -18,7 +18,6 @@ export default function GuestAccessLink({user, guest}) {
 	const { scrollYProgress } = useScroll({ target: ref });
 	const y = useParallax(scrollYProgress, 300);
 	
-	
 	const fullname = `${user?.profile?.name} ${user?.profile?.secondName} ${user?.profile?.lastName} ${user?.profile?.secondLastName}  `
 	
 	return (
