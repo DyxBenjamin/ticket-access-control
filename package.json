@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "update": "ncu -u && npm i"
+    "update": "ncu -u && npm i",
+    "templateUpdate": "git merge template/main --allow-unrelated-histories"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
