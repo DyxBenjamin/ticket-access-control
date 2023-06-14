@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
+import Serverless from "@srclib/devclusters/ServerlessConector";
 
 
 export default function useReactiveData( {
-	route,
+	collection,
 	singleton,
 	filters,
 	projection,
@@ -32,22 +33,8 @@ export default function useReactiveData( {
 		} );
 		
 		if ( !haveNullDeps ) {
-			fetch( `${process.env.SERVER_URL}${ route }`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify( {
-					singleton,
-					filters,
-					projection,
-					settings,
-					links
-				} )
-			} )
-				.then( ( res ) => res.json() )
-				.then( ( data ) => setData( data.result ) )
-				.catch( ( err ) => console.error( err ) );
+			const data = Serverless.fetchStaticData({ collection, singleton, filters, projection, settings, links });
+			setData( data );
 		}
 	}, [ ...deps, refresh ] );
 	
@@ -76,7 +63,6 @@ export default function useReactiveData( {
 		console.log( 'deps', deps );
 		console.log( '-----------------------------------------------------------------' );
 	}
-	
-	
+
 	return data;
 }

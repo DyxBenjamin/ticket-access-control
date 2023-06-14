@@ -20,7 +20,7 @@ export default async function handler( req, res ) {
 		customServices: DataServicesIndex,
 		enableServices:{
 			all: {
-				enabled: true,
+				enablced: true,
 				auth: false,
 				permissions: false,
 			},
@@ -39,7 +39,7 @@ export default async function handler( req, res ) {
 				auth: true,
 				permissions: ['admin', 'editor'],
 			},
-			remove: {
+			delete: {
 				enabled: true,
 				auth: true,
 				permissions: ['admin', 'editor'],
@@ -60,14 +60,6 @@ export default async function handler( req, res ) {
 				permissions: ['admin', 'editor'],
 			}
 		},
-		enableChronServices:{
-			clearDocuments: {
-				enabled: true,
-				expression: '0 0 * * *', // every day at 00:00
-				scheduled: true,
-				timezone: 'America/New_York',
-			}
-		}
 	}
 
 	await controller({req, res, config})
