@@ -17,6 +17,8 @@ export default function generateApiServices({req, res, config}) {
             handleResult(result)
         },
         async find() {
+            console.log('%c << ▶️ find >>', 'color: white; font-size: 16px');
+
             const { filters, projection, options, singleton, links } = body;
             const result = await findOnCollection({ config, filters, projection, options, singleton, enableLinks: links })
             handleResult(result)
@@ -55,16 +57,16 @@ export default function generateApiServices({req, res, config}) {
 
     function handleResult(result) {
         if (result.error) {
-            res.status(500).json(result)
+            res.status(500).json({ status:500, msg:'Internal Server Error', error: result.error })
         } else {
-            res.status(200).json(result)
+            res.status(200).json({ status:200, msg:'OK', data: result })
         }
     }
 
     if (!enableServices && !customServices) {
         return {
             [controller]: ({}) => {
-                res.status(404).json({error: 'Not Found'});
+                res.status(404).json({ status:'404', msg:'Not Found', error: 'No services enabled' });
             }
         }
     }
@@ -72,7 +74,7 @@ export default function generateApiServices({req, res, config}) {
     if (!enableServices?.[controller]?.enabled && !customServices?.[controller]?.enabled) {
         return {
             [controller]: ({}) => {
-                res.status(404).json({error: 'Disabled'});
+                res.status(404).json({ status:'404', msg:'Not Found', error: 'Service not enabled' });
             }
         }
 

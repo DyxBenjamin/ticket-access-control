@@ -20,10 +20,9 @@ class ServerlessConnector {
 			},
 			body: JSON.stringify(payload),
 		})
-		if (callback) {
-			return callback(response);
-		}
-		return response.json();
+		if( !response.ok ) throw new Error(response.msg);
+		if (callback) return callback(response);
+		return await response.json();
 	}
 
 	async fetchStaticData({
@@ -36,11 +35,11 @@ class ServerlessConnector {
 	                      }) {
 		try {
 			const route = `/${collection}/find`;
-			const data = this.callAsync({
-				route: `${process.env.NEXT_PUBLIC_SERVERLESS_URL}/api/v1${route}`,
+			const response = await this.callAsync({
+				route,
 				payload: {singleton, filters, projection, settings, links}, callback: null
 			});
-			return data.result;
+			return response.data;
 		} catch (err) {
 			console.error(err);
 			return null;

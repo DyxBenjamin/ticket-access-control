@@ -15,6 +15,15 @@ const defaultTheme = createTheme({
 			main: '#000',
 		}
 	},
+	components:{
+		MuiTypography:{
+			styleOverrides:{
+				root:{
+					color: '#FFF',
+				}
+			}
+		}
+	}
 });
 
 export default defaultTheme;

@@ -46,6 +46,7 @@
 
 body{
   background: black;
+  color: white;
 }
 
 @media (prefers-color-scheme: dark) {

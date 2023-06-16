@@ -15,7 +15,7 @@ export default function FlexColumn({children, fullWidth, center, transpose, ...p
 	
 
 	return (
-		<Stack direction={breakpointReached ? 'row' : 'column'} spacing={3} {...props} >
+		<Stack direction={breakpointReached ? 'row' : 'column'} {...props} >
 			{ children }
 		</Stack>
 	)

@@ -4,6 +4,8 @@ import Users from '@server/data/models/UserModel';
 import UserLinks from '@server/data/links/UserLinks';
 
 export default async function handler( req, res ) {
+	console.log('%c << ▶️ handler >>', 'color: white; font-size: 16px');
+
 	const config = {
 		collection: Users,
 		links: UserLinks,

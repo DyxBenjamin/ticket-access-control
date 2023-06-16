@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 
 
 export default function FullContain({children, sx, center, ...props}) {
-    if ( center ) sx = Object.assign( sx, {justifyContent:'center', alignItems:'center'} );
+    if ( center ) props = {...props, sx:{justifyContent:'center', alignItems:'center', ...props.sx} }
 
     return (
         <Box
