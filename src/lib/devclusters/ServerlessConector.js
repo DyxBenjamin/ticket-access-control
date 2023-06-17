@@ -34,7 +34,7 @@ class ServerlessConnector {
 		                      links
 	                      }) {
 		try {
-			const route = `/${collection}/find`;
+			const route = `${collection}/find`;
 			const response = await this.callAsync({
 				route,
 				payload: {singleton, filters, projection, settings, links}, callback: null
