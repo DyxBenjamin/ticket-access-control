@@ -2,7 +2,7 @@ import {Typography} from "@mui/material";
 import MobileScreen from "@components/layouts/MobileScreen";
 import React from "react";
 import FlexColumn from "@components/layouts/FlexColumn";
-import Church from "@assets/images/church.png";
+import Church from "@assets/images/Church.png";
 import DynamicSizeNextImage from "@components/utils/DynamicSizeNextImage";
 import DynamicSizeIframe from "@components/utils/DynamicSizeIframe";
 
