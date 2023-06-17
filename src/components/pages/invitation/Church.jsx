@@ -13,12 +13,14 @@ export default function Hall({}) {
 			direction = { 'column' } >
 			<FlexColumn center spacing={2} >
 				<DynamicSizeNextImage src={Church} width={'100%'} height={'30vh'} />
-				<Typography>
-					Basílica Menor de Santa María de Guadalupe
-				</Typography>
-				<Typography>
+				<FlexColumn center spacing={2} padding={2}>
+					<Typography color={"#000"} sx={{textAlign:'center'}} >
+						La gratitud es la memoria del corazón. Acompáñanos a mostrar nuestro agradecimiento en una misa especial en Basílica Menor de Santa María de Guadalupe, donde elevaremos nuestras plegarias y daremos gracias por los logros alcanzados.
+					</Typography>
+					<Typography>
 
-				</Typography>
+					</Typography>
+				</FlexColumn>
 				<DynamicSizeIframe
 					sx={{borderRadius: '12px', margin: '0px 0px 0px'}}
 					width={'45vh'}

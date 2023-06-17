@@ -48,7 +48,7 @@ class ServerlessConnector {
 
 	async status() {
 		return await this.callAsync({
-			route: '/status',
+			route: 'status',
 			payload: {},
 			callback: null
 		});

@@ -18,9 +18,12 @@ Content-Type: application/json
 
 {
     "profile": {
-        "name": "Benjamín",
-        "lastName": "Garrido",
-        "secondLastName": "González"
+        "name": "Alexis",
+        "secondName": "Salvador",
+        "lastName": "Medina",
+        "secondLastName": "Leiva"
     },
+    "menu": "regular",
+    "table": "0",
     "userId": "64757b0e5ef643c465f2a24e"
 }

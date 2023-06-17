@@ -41,6 +41,14 @@ const GuestSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		required: true,
 	},
+	table:{
+		type: Number,
+		default: 0,
+	},
+	menu:{
+		type: String,
+		default: 'regular',
+	},
 	createAt: {
 		type: Number,
 		default: moment().valueOf(),

@@ -32,7 +32,7 @@ export default function GuestAccessLink({user, guest}) {
 				quote={'“Somos moldeados y modelados por lo que amamos.”'}
 				author={'Audrey Hepburn'}
 				imageSrc={'https://images.pexels.com/photos/15792907/pexels-photo-15792907/free-photo-of-cielo-ramas-techo-arquitectura.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'} />
-			<Menu/>
+			<Menu guest={guest} />
 			<Itinerary/>
 			<Quote
 				quote={'“La arquitectura no es una profesión para los impacientes.”'}

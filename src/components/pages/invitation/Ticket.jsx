@@ -33,16 +33,13 @@ export default function Ticket({guest, user}) {
 					sx={{background: 'white', height: '30vh', width: '90%', borderRadius: '30px', borderBottom: '2px dashed gray', boxShadow:'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;'}}>
 					<QRCode
 						size={256}
-						style={{height: "180px", width: "180px"}}
+						style={{height: "140px", width: "140px"}}
 						viewBox={`0 0 256 256`}
 						value={user?.accessLink ?? 'hello'}/>
 					<Typography variant={'h6'}
 					            color={'#000'}
 					            sx={{
 						            fontWeight: '600',
-						            borderTop: '2px solid white',
-						            borderBottom: '2px solid white',
-						            letterSpacing: '.1rem',
 						            fontFamily: 'Quicksand'
 					            }}>
 						{guestFullName}
