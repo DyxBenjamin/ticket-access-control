@@ -22,7 +22,6 @@ export default function Menu({guests, ...props}) {
 
 	const guestsMenu = menu[guests?.menu ?? 'regular'];
 
-
 	return (
 		<MobileScreen
 			sx = { { border: '4px solid white', scrollSnapAlign: 'center'} }
