@@ -35,7 +35,7 @@ export default function Ticket({guest, user}) {
 						size={256}
 						style={{height: "180px", width: "180px"}}
 						viewBox={`0 0 256 256`}
-						value={user.accessLink}/>
+						value={user?.accessLink ?? 'hello'}/>
 					<Typography variant={'h6'}
 					            color={'#000'}
 					            sx={{
