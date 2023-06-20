@@ -9,12 +9,25 @@ import DynamicSizeIframe from "@components/utils/DynamicSizeIframe";
 export default function Hall({}) {
 	return (
 		<MobileScreen
-			sx = { { border: '4px solid white', background:'#f3e5e9', scrollSnapAlign: 'center'} }
+			sx = { { border: '4px solid white', background:'#fcf4f6', scrollSnapAlign: 'center'} }
 			direction = { 'column' } >
 			<FlexColumn center spacing={2} >
 				<DynamicSizeNextImage src={Church} width={'100%'} height={'30vh'} />
 				<FlexColumn center spacing={2} padding={2}>
-					<Typography color={"#000"} sx={{textAlign:'center'}} >
+					<Typography
+						variant = { 'h4' }
+						color={'#682800'}
+						sx = { {
+							fontWeight: '400',
+							fontFamily: 'Playfair Display',
+							textAlign: 'center',
+							fontSize: '28px',
+							padding:'0 12px',
+							letterSpacing: '.2rem',
+						} } >
+						Basílica Menor de Santa María de Guadalupe
+					</Typography >
+					<Typography color={"#8a3804"} sx={{textAlign:'center'}} >
 						La gratitud es la memoria del corazón. Acompáñanos a mostrar nuestro agradecimiento en una misa especial en Basílica Menor de Santa María de Guadalupe, donde elevaremos nuestras plegarias y daremos gracias por los logros alcanzados.
 					</Typography>
 					<Typography>

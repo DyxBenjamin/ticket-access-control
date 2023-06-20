@@ -1,9 +1,4 @@
-import React, { useRef } from 'react';
-import MobileScreen from '@components/layouts/MobileScreen';
-import { Box, Typography } from '@mui/material';
-import FlexColumn from '@components/layouts/FlexColumn';
-import FlexRow from '@components/layouts/FlexRow';
-import Image from 'next/image';
+import React from 'react';
 import fetchStaticData from '@utils/fetchStaticData';
 import FullContain from '@components/layouts/FullContain';
 import Main from "@components/pages/invitation/Main";

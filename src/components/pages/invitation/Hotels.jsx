@@ -1,16 +1,15 @@
-import react,{useState} from 'react';
-import {Box, Typography} from "@mui/material";
+import React from 'react';
+import {Typography} from "@mui/material";
 import MobileScreen from "@components/layouts/MobileScreen";
-import React from "react";
 import FlexColumn from "@components/layouts/FlexColumn";
 
 
 export default function Hotels({...props}) {
 	return (
 		<MobileScreen
-			sx = { { border: '4px solid white', scrollSnapAlign: 'center'} }
-			direction = { 'column' } >
-			<FlexColumn center fullWidth sx={{height: '100vh', overflow:'scroll'}} padding={2}>
+			sx={{border: '4px solid white', scrollSnapAlign: 'center'}}
+			direction={'column'}>
+			<FlexColumn center fullWidth sx={{height: '100vh', overflow: 'scroll'}} padding={2}>
 				<Typography
 					variant={'h4'}
 					sx={{
@@ -56,7 +55,7 @@ export default function Hotels({...props}) {
 					<Typography>
 					</Typography>
 				</FlexColumn>
-				<FlexColumn>
+				<FlexColumn center spacing={2}>
 					<Typography
 						variant={'h4'}
 						sx={{
@@ -70,11 +69,19 @@ export default function Hotels({...props}) {
 						Numeros de emergencia
 					</Typography>
 					<Typography>
-
+						Emergencias: 911
+					</Typography>
+					<Typography>
+						Cruz Roja: 55 53 95 11 11
+					</Typography>
+					<Typography>
+						Protección Civil: 55 51 28 00 00
+					</Typography>
+					<Typography>
+						Mecánico: 771 371 9688
 					</Typography>
 				</FlexColumn>
-
 			</FlexColumn>
-		</MobileScreen >
+		</MobileScreen>
 	);
 }

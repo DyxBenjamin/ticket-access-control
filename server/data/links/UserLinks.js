@@ -9,6 +9,15 @@
 //}
 
 
-const UserLinks = {}
+import Guest from "@server/data/models/GuestsModel";
+
+const UserLinks = {
+	guests: {
+		type: 'many',
+		from: '_id',
+		to: 'userId',
+		collection: Guest
+	}
+}
 
 export default UserLinks

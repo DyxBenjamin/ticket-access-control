@@ -1,6 +1,9 @@
 class ServerlessConnector {
-	constructor(origin) {
+	name = 'ServerlessConnector';
+	constructor(name, origin, apiVersion) {
+		this.name = name ?? 'ServerlessConnector';
 		this.origin = origin ?? process.env.NEXT_PUBLIC_SERVERLESS_URL;
+		this.apiVersion = apiVersion ?? 'v1';
 	}
 
 	/**
@@ -13,7 +16,7 @@ class ServerlessConnector {
 	 * @returns {Object} - Ampt method response on JSON format.
 	 */
 	async callAsync({route, payload, callback}) {
-		const response = await fetch(`${this.origin}/api/v1/${route}`, {
+		const response = await fetch(`${this.origin}/api/${this.apiVersion}/${route}`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -57,11 +60,9 @@ class ServerlessConnector {
 
 const ServerlessConnectorSingleton = (function () {
 	let instance;
-
 	function createInstance() {
 		return new ServerlessConnector();
 	}
-
 	return {
 		getInstance: function () {
 			if (!instance) instance = createInstance();

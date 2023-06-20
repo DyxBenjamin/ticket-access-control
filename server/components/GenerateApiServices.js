@@ -17,9 +17,9 @@ export default function generateApiServices({req, res, config}) {
             handleResult(result)
         },
         async find() {
-            console.log('%c << ▶️ find >>', 'color: white; font-size: 16px');
-
             const { filters, projection, options, singleton, links } = body;
+            console.log('%c << 📌 body >>', 'color: white; font-size: 12px');
+            console.log(body);
             const result = await findOnCollection({ config, filters, projection, options, singleton, enableLinks: links })
             handleResult(result)
         },

@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
 import Serverless from "@srclib/devclusters/ServerlessConector";
+import {useCounter} from "@uidotdev/usehooks";
 
 
 export default function useReactiveData( {
 	collection,
 	singleton,
+	conector = Serverless,
 	filters,
 	projection,
 	settings,
+	pagination, // TODO: implement pagination, the pagination object should be like this: { page: 1, limit: 10 } and the response should be like this: { data: [], total: 100, pages: 10, currentPage: 1 }
 	links,
 	defaultData = {},
 	refreshInterval = false,
@@ -16,12 +19,12 @@ export default function useReactiveData( {
 	deps
 } ) {
 	const [ data, setData ] = useState( null );
-	const [ refresh, setRefresh ] = useState( 0 );
+	const [refreshCount, { increment: incrementRefresh }] = useCounter(0);
 	
 	useEffect( () => {
 		if ( refreshInterval !== false ) {
 			const interval = setInterval( () => {
-				setRefresh( ( refresh ) => refresh + 1 );
+				incrementRefresh();
 			}, refreshInterval );
 			return () => clearInterval( interval );
 		}
@@ -31,12 +34,12 @@ export default function useReactiveData( {
 		const haveNullDeps = _.some( deps, ( dep ) => {
 			return _.isNull( dep ) || _.isUndefined( dep );
 		} );
-		
+		( async () => {
 		if ( !haveNullDeps ) {
-			const data = Serverless.fetchStaticData({ collection, singleton, filters, projection, settings, links });
+			const data = await conector.fetchStaticData({ collection, singleton, filters, projection, settings, links });
 			setData( data );
-		}
-	}, [ ...deps, refresh ] );
+		}} )();
+	}, [ ...deps, refreshCount ] );
 	
 	useEffect( () => {
 		if ( debug && data ) {
@@ -45,12 +48,11 @@ export default function useReactiveData( {
 	}, [ data ] );
 	
 	if ( !data ) {
-		return defaultData;
+		return { data: defaultData };
 	}
-	
-	
+
 	function debugLog() {
-		console.log( `------------------------ Server ${ route } ------------------------` );
+		console.log( `------------------------ ${conector.name} ${ collection } ------------------------` );
 		console.log( 'data', data );
 		console.log( 'singleton', singleton );
 		console.log( 'filters', filters );
@@ -59,10 +61,11 @@ export default function useReactiveData( {
 		console.log( 'links', links );
 		console.log( 'defaultData', defaultData );
 		console.log( 'refreshInterval', refreshInterval );
+		console.log( 'refreshCount', refreshCount );
 		console.log( 'debug', debug );
 		console.log( 'deps', deps );
 		console.log( '-----------------------------------------------------------------' );
 	}
 
-	return data;
+	return { data, update: incrementRefresh  };
 }

@@ -46,6 +46,10 @@ export default async function findOnCollection( {
 	}
 	
 	if ( enableLinks && links ) {
+		console.log('%c << 📌 enableLinks >>', 'color: white; font-size: 12px');
+		console.log(enableLinks);
+		console.log('%c << 📌 links >>', 'color: white; font-size: 12px');
+		console.log(links);
 		const linkedDocuments = await getLinkedDocuments( {
 			links,
 			result
