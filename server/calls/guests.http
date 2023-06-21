@@ -18,12 +18,12 @@ Content-Type: application/json
 
 {
     "profile": {
-        "name": "Alexis",
-        "secondName": "Salvador",
-        "lastName": "Medina",
-        "secondLastName": "Leiva"
+        "name": "Pablo",
+        "secondName": "",
+        "lastName": "Luna",
+        "secondLastName": ""
     },
     "menu": "regular",
-    "table": "0",
-    "userId": "64757b0e5ef643c465f2a24e"
+    "table": "17",
+    "userId": "64927a1a12c256bb43fddfea"
 }

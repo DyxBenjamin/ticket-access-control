@@ -1,6 +1,7 @@
 const devClusterConfig = {
     production: {
         provider: 'vercel', // 'vercel', 'devcluster', 'ampt'
+
     }
 }
 

@@ -69,8 +69,8 @@ export default function Itinerary({...props}) {
 	const renderProgram = () => {
 		return _.map(program, (item, index) => {
 			return (
-				<FlexColumn>
-					<FlexRow key={index} fullWidth>
+				<FlexColumn key={index}  >
+					<FlexRow fullWidth>
 						<FlexColumn center >
 							<Typography color={"#000"} >
 								{item.time}

@@ -29,6 +29,7 @@ export default function Main({user, guest}) {
 						layout = 'fill'
 						objectFit = 'cover'
 						alt = 'Descripción de la imagen'
+						priority
 					/>
 				</Box >
 				<FlexColumn sx = { {

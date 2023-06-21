@@ -3,10 +3,10 @@ import FullContain from "@components/layouts/FullContain";
 import Invitados from "@components/pages/anfitrion/Invitados";
 import fetchStaticData from "@utils/fetchStaticData";
 import useReactiveData from "@hooks/useReactiveData";
-import MobileScreen from "@components/layouts/MobileScreen";
 import Customizer from "@components/pages/anfitrion/Customizer";
 
 export default function AccessLink({preFetchUser}) {
+
 	const {data: user, update: updateUserData} = useReactiveData({
 		collection: 'users',
 		singleton: true,
@@ -24,12 +24,8 @@ export default function AccessLink({preFetchUser}) {
 				background: 'black',
 				scrollSnapType: 'y mandatory',
 			}}>
-			<MobileScreen
-				sx={{border: '4px solid white', scrollSnapAlign: 'center'}}
-				direction={'column'}>
 				<Customizer/>
 				<Invitados user={user}/>
-			</MobileScreen>
 		</FullContain>
 	)
 }

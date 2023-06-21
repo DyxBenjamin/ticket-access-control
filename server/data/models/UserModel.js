@@ -38,6 +38,34 @@ const UserSchema = new Schema({
 			},
 		}
 	],
+	settings:{
+		cover:{
+			type:{
+				type: String,
+				default: 'image',
+				enum: ['image', 'video']
+			},
+			urls:[Object]
+		},
+		quotes:{
+			first:{
+				text:{
+					type: String,
+				},
+				url:{
+					type: String,
+				}
+			},
+			second:{
+				text:{
+					type: String,
+				},
+				url:{
+					type: String,
+				}
+			}
+		}
+	},
 	phone: {
 		type: String,
 	},

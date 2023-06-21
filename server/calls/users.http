@@ -20,10 +20,10 @@ Content-Type: application/json
 
 {
     "profile": {
-        "name": "Ariadna",
-        "secondName": "Itzel",
-        "lastName": "Rodríguez",
-        "secondLastName": "Madrid"
+        "name": "Gabriela",
+        "secondName": "",
+        "lastName": "Salazar",
+        "secondLastName": ""
     }
 }
 

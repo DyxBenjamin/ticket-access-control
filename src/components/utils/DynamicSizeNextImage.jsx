@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 
-export default function DynamicSizeNextImage({src, width, height}) {
+export default function DynamicSizeNextImage({src, width, height, ...props}) {
 	return (
 		<Box sx = { {
 			width,
@@ -22,6 +22,9 @@ export default function DynamicSizeNextImage({src, width, height}) {
 					layout = 'fill'
 					objectFit = 'cover'
 					alt = 'Descripción de la imagen'
+					priority
+					sizes={width}
+					{...props}
 				/>
 			</Box >
 		</Box>
