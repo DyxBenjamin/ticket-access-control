@@ -20,12 +20,12 @@ Content-Type: application/json
     "profile": {
         "name": "Benja",
         "secondName": "",
-        "lastName": "Min",
+        "lastName": "jajaja",
         "secondLastName": ""
     },
     "menu": "regular",
     "table": "42",
-    "userId": "64757b0e5ef643c465f2a24e"
+    "userId": "6494884e620d5c2355f41342"
 }
 
 ### update
