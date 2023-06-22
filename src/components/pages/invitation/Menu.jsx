@@ -38,7 +38,7 @@ export default function Menu({guest, ...props}) {
 						color: 'white',
 						fontSize: '28px'
 					}}>
-					Menu
+					Menú
 				</Typography>
 				<FlexColumn
 					center
