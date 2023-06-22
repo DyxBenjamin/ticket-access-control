@@ -9,14 +9,14 @@ import DynamicSizeIframe from "@components/utils/DynamicSizeIframe";
 export default function Hall({...props}) {
 	return (
 		<MobileScreen
-			sx={{border: '4px solid white', background: '#070020', scrollSnapAlign: 'center'}}
+			sx={{border: '4px solid white', background: '#4a5264', scrollSnapAlign: 'center'}}
 			direction={'column'}>
 			<FlexColumn center spacing={2}>
 				<DynamicSizeNextImage src={Salon} width={'100%'} height={'30vh'}/>
 				<FlexColumn center spacing={2} padding={2}>
 					<Typography
 						variant={'h4'}
-						color={'#be1ccc'}
+						color={'#F6B776'}
 						sx={{
 							fontWeight: '400',
 							fontFamily: 'Playfair Display',
@@ -27,7 +27,7 @@ export default function Hall({...props}) {
 						}}>
 						Hacienda Santa Cecilia
 					</Typography>
-					<Typography color={'#fcecff'}>
+					<Typography color={'#FFF4DD'} sx={{ textAlign:'center' }} >
 						Las noches de estudio y esfuerzo se convertirán en una noche de alegría y celebración en Hacienda Santa Cecilia. Únete a nosotros para festejar los logros alcanzados y brindar por los sueños que están por cumplirse
 					</Typography>
 				</FlexColumn>
