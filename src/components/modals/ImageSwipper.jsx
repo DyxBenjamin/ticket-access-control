@@ -31,7 +31,7 @@ export function ImageSwiper({
     }, [delayInSeconds]);
 
     return (
-        <div style={{width: width, height: height, padding: "2%"}}>
+        <div style={{width: width, height: height, padding: "1%"}}>
             <Swiper
                 ref={swiperRef}
                 slidesPerView={1}
@@ -47,6 +47,7 @@ export function ImageSwiper({
                             layout={layout}
                             objectFit={objectFit}
                             objectPosition={objectPosition}
+                            priority
                         />
                     </SwiperSlide>
                 ))}
