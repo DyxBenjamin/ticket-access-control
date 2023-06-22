@@ -1,6 +1,5 @@
 import {Head, Html, Main, NextScript} from 'next/document'
 import {ToastContainer} from "react-toastify";
-import Script from "next/script";
 
 export default function Document() {
     return (
@@ -10,7 +9,7 @@ export default function Document() {
             <ToastContainer/>
             <Main/>
             <NextScript/>
-            <Script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></Script>
+            <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript" async/>
             </body>
         </Html>
     )
