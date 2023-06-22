@@ -100,7 +100,7 @@ export default function Itinerary({...props}) {
 		<MobileScreen
 			sx = { { border: '4px solid white', scrollSnapAlign: 'center', background:'white'} }
 			direction = { 'column' } >
-			<FlexColumn center fullWidth sx={{height: '100vh', overflow:'scroll'}} padding={2}>
+			<FlexColumn fullWidth sx={{height: '100vh', overflow:'scroll'}} padding={2}>
 				<Typography
 					variant={'h4'}
 					sx={{

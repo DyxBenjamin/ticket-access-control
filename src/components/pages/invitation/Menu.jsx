@@ -5,7 +5,7 @@ import FlexColumn from "@components/layouts/FlexColumn";
 import HorizontalDivider from "@components/utils/HorizontalDivider";
 
 
-export default function Menu({guest, ...props}) {
+export default function Menu({guest}) {
 	const menu = {
 		regular: {
 			firstTime: 'Crujiente de cangrejo',
@@ -168,7 +168,7 @@ export default function Menu({guest, ...props}) {
 								letterSpacing: '.4rem',
 								fontFamily: 'Quicksand'
 							}}>
-							Menu infantil
+							Menú infantil
 						</Typography>
 						<Typography variant={'h6'}
 						            color={'#000'}

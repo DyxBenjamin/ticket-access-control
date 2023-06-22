@@ -107,7 +107,7 @@ export default function Ticket({guest, user}) {
 								letterSpacing: '.4rem',
 								fontFamily: 'Quicksand'
 							}}>
-							Salon
+							Salón
 						</Typography>
 						<Typography variant={'h6'}
 						            color={'#000'}
