@@ -66,7 +66,7 @@ export default function Hotels({}) {
                             color: 'white',
                             fontSize: '16px'
                         }}>
-                        Numeros de emergencia
+                        Números de emergencia
                     </Typography>
                     <Typography>
                         Emergencias: 911
