@@ -5,6 +5,7 @@ import deleteOnCollection from "@server/data/actions/removeOnCollection";
 import analyzeCollection from "@server/data/actions/analyzeCollection";
 import importCollection from "@server/data/actions/importCollection";
 import _ from 'lodash';
+import handleResult from "@server/utils/handleResult";
 
 
 export default function generateApiServices({req, res, config}) {
@@ -14,54 +15,44 @@ export default function generateApiServices({req, res, config}) {
     const services = {
         async all() {
             const result = await collection.find({}).exec();
-            handleResult(result)
+            handleResult(result, res)
         },
         async find() {
             const { filters, projection, options, singleton, links } = body;
-            console.log('%c << 📌 body >>', 'color: white; font-size: 12px');
-            console.log(body);
             const result = await findOnCollection({ config, filters, projection, options, singleton, enableLinks: links })
-            handleResult(result)
+            handleResult(result, res)
         },
         async create() {
             const result = await saveOnCollection({collection, body})
-            handleResult(result)
+            handleResult(result, res)
         },
         async update() {
             const {selector, modifier, singleton, upsert} = body;
             const result = await updateOnCollection({collection, selector, modifier, singleton, upsert})
-            handleResult(result)
+            handleResult(result, res)
         },
         async delete() {
             const {selector, singleton, logical} = body;
             const result = await deleteOnCollection({collection, selector, singleton, logical})
-            handleResult(result)
+            handleResult(result, res)
         },
         async analyze() {
             const result = await analyzeCollection({collection})
-            handleResult(result)
+            handleResult(result, res)
         }, // stats and data analisis
         async importData() {
             const result = await importCollection({collection, body})
-            handleResult(result)
+            handleResult(result, res)
         }, // import data from file
         async exportData() {
             const result = await collection.find({}).exec();
-            handleResult(result)
+            handleResult(result, res)
         }, // export data to file
     }
 
     _.map(customServices, (customService, key) => {
         services[key] = async () => customService.service({req, res, config})
     })
-
-    function handleResult(result) {
-        if (result.error) {
-            res.status(500).json({ status:500, msg:'Internal Server Error', error: result.error })
-        } else {
-            res.status(200).json({ status:200, msg:'OK', data: result })
-        }
-    }
 
     if (!enableServices && !customServices) {
         return {

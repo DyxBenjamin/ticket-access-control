@@ -27,6 +27,37 @@ Content-Type: application/json
     }
 }
 
+### update
+POST http://localhost:3000/api/v1/users/update
+Content-Type: application/json
+
+{
+  "selector": {
+    "_id": "64757b0e5ef643c465f2a24e"
+  },
+  "modifier": {
+    "$set": {
+      "settings": {
+        "cover": {"type": "image", "urls": []},
+        "quotes": {
+          "0": {
+            "text": "Somos moldeados y modelados por lo que amamos.",
+            "author": "Audrey Hepburn",
+            "url": "https://images.pexels.com/photos/15792907/pexels-photo-15792907/free-photo-of-cielo-ramas-techo-arquitectura.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          },
+          "1": {
+            "text": "La arquitectura no es una profesión para los impacientes.",
+            "author": "Peter Eisenman",
+            "url": "https://images.pexels.com/photos/3317535/pexels-photo-3317535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          }
+        }
+      }
+    },
+    "singleton": true,
+    "upsert": false
+  }
+}
+
 ### find all staging
 POST https://ticket-access-control-dyxbenjamin.vercel.app/api/v1/users/all
 Content-Type: application/json

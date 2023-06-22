@@ -42,7 +42,8 @@ export default function useReactiveData( {
 	}, [ ...deps, refreshCount ] );
 	
 	useEffect( () => {
-		if ( debug && data ) {
+		const isDeveloopment = process.env.NODE_ENV === 'development';
+		if ( debug && data && isDeveloopment ) {
 			debugLog();
 		}
 	}, [ data ] );

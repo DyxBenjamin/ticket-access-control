@@ -18,21 +18,22 @@ export default function GuestAccessLink({user, guest}) {
 			sx = {{
 				background: 'black',
 				scrollSnapType: 'y mandatory',
+				alignItems: 'center',
 				 }} >
 			<Main user={user} />
 			<Ticket user={user} guest={guest} />
 			<Hall/>
 			<Church/>
 			<Quote
-				quote={'“Somos moldeados y modelados por lo que amamos.”'}
-				author={'Audrey Hepburn'}
-				imageSrc={'https://images.pexels.com/photos/15792907/pexels-photo-15792907/free-photo-of-cielo-ramas-techo-arquitectura.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'} />
+				quote={`“${ user.settings.quotes[0].text }”`}
+				author={`${ user.settings.quotes[0].author }`}
+				imageSrc={ `${ user.settings.quotes[0].url }` || 'https://images.pexels.com/photos/15792907/pexels-photo-15792907/free-photo-of-cielo-ramas-techo-arquitectura.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'} />
 			<Menu guest={guest} />
 			<Itinerary/>
 			<Quote
-				quote={'“La arquitectura no es una profesión para los impacientes.”'}
-				author={'Peter Eisenman'}
-				imageSrc={'https://images.pexels.com/photos/3317535/pexels-photo-3317535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'} />
+				quote={`“${ user.settings.quotes[1].text }”`}
+				author={`${ user.settings.quotes[1].author }`}
+				imageSrc={ `${ user.settings.quotes[1].url }` || 'https://images.pexels.com/photos/3317535/pexels-photo-3317535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'} />
 			<Hotels/>
 		</FullContain >
 		 );

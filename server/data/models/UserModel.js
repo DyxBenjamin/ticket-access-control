@@ -48,16 +48,22 @@ const UserSchema = new Schema({
 			urls:[Object]
 		},
 		quotes:{
-			first:{
+			0:{
 				text:{
+					type: String,
+				},
+				author:{
 					type: String,
 				},
 				url:{
 					type: String,
 				}
 			},
-			second:{
+			1:{
 				text:{
+					type: String,
+				},
+				author:{
 					type: String,
 				},
 				url:{

@@ -11,10 +11,11 @@ export default function MobileScreen({children, sx, direction, center, ...props}
 				display: 'flex',
 				height: '100vh',
 				maxWidth: 'calc(100vh * 0.5625)',
+				width:'-webkit-fill-available',
 				...sx
 			}}
-			{...props}>
-			<Box sx={{ height: '100vh' }} >
+			>
+			<Box sx={{ height: '100vh', minWidth:'100%' }} {...props} >
 				{ children }
 			</Box>
         </Box>

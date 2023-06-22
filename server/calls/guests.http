@@ -18,12 +18,34 @@ Content-Type: application/json
 
 {
     "profile": {
-        "name": "Pablo",
+        "name": "Benja",
         "secondName": "",
-        "lastName": "Luna",
+        "lastName": "Min",
         "secondLastName": ""
     },
     "menu": "regular",
-    "table": "17",
-    "userId": "64927a1a12c256bb43fddfea"
+    "table": "42",
+    "userId": "64757b0e5ef643c465f2a24e"
+}
+
+### update
+POST http://localhost:3000/api/v1/guests/update
+Content-Type: application/json
+
+{
+  "selector": {
+    "_id": "6493bfd1d24c4fc6f89573e6"
+  },
+  "modifier": {
+    "$set": {
+      "profile": {
+        "name": "Ben",
+        "secondName": "",
+        "lastName": "Garr",
+        "secondLastName": ""
+      }
+    }
+  },
+  "singleton": true,
+  "upsert": false
 }
