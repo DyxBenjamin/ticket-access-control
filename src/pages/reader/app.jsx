@@ -8,7 +8,7 @@ import {Button} from "@mui/material";
 
 
 export default function App({...props}) {
-	const [userId, setUserId] = useState('');
+	const [userId, setUserId] = useState('undefined');
 	const [scan, toggleScan] = useToggle(false)
 
 	const {data: guest, update: updateGuestsData} = useReactiveData({
@@ -44,7 +44,7 @@ export default function App({...props}) {
 			{guest &&
 				<FlexRow>
 					{
-						userId === 'undefined' ?
+						(userId === 'undefined' || userId === '') ?
 							<p>El código QR no es válido</p>
 							:
 							<Ticket guest={guest} updateGuest={updateGuestsData}/>
