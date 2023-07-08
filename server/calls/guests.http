@@ -3,12 +3,12 @@ POST http://localhost:3000/api/v1/users/all
 Content-Type: application/json
 
 ### find by id
-POST http://localhost:3000/api/v1/users/find
+POST http://localhost:3000/api/v1/guests/find
 Content-Type: application/json
 
 {
 	"filters": {
-		"links.accessLink": "benjamin-garrido"
+		"userId": "6492799012c256bb43fddfd4"
 	}
 }
 
@@ -18,14 +18,14 @@ Content-Type: application/json
 
 {
     "profile": {
-        "name": "Benja",
+        "name": "Olga",
         "secondName": "",
-        "lastName": "jajaja",
+        "lastName": "Solares",
         "secondLastName": ""
     },
     "menu": "regular",
-    "table": "42",
-    "userId": "6494884e620d5c2355f41342"
+    "table": "6",
+    "userId": "6492799b12c256bb43fddfd6"
 }
 
 ### update

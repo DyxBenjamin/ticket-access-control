@@ -3,6 +3,7 @@ import React, {useEffect, useRef} from 'react';
 import SwiperCore, {Autoplay, Navigation, Pagination, EffectFade} from 'swiper';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from "swiper/react";
+import DynamicSizeNextImage from "@components/utils/DynamicSizeNextImage";
 
 SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade]);
 
@@ -12,6 +13,8 @@ export function ImageSwiper({
                                 objectFit,
                                 height,
                                 width,
+    imgWidth,
+    imgHeight,
                                 alt = "",
                                 swiperH,
                                 swiperW,
@@ -41,13 +44,10 @@ export function ImageSwiper({
             >
                 {urls.map((src, i) => (
                     <SwiperSlide key={i} style={{textAlign: 'center', width: swiperW, height: swiperH}}>
-                        <Image
+                        <DynamicSizeNextImage
                             src={src}
-                            alt={alt}
-                            layout={layout}
-                            objectFit={objectFit}
-                            objectPosition={objectPosition}
-                            priority
+                           width={height}
+                            height={width}
                         />
                     </SwiperSlide>
                 ))}

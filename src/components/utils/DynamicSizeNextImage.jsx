@@ -23,7 +23,6 @@ export default function DynamicSizeNextImage({src, width, height, ...props}) {
 					objectFit = 'cover'
 					alt = 'Descripción de la imagen'
 					priority
-					sizes={width}
 					{...props}
 				/>
 			</Box >
