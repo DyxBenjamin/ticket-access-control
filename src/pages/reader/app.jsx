@@ -6,9 +6,6 @@ import Ticket from "@components/pages/invitation/Ticket";
 import {useToggle} from "@uidotdev/usehooks";
 import {Button} from "@mui/material";
 
-const css = {
-	app: {}
-}
 
 export default function App({...props}) {
 	const [userId, setUserId] = useState('');
@@ -27,7 +24,7 @@ export default function App({...props}) {
 
 	return (
 		<>
-			<Button onClick={scan} >
+			<Button onClick={toggleScan} >
 				Scan
 			</Button>
 			{scan &&
@@ -35,6 +32,7 @@ export default function App({...props}) {
 					onResult={(result, error) => {
 						if (!!result) {
 							setUserId(result?.text);
+							toggleScan();
 						}
 						if (!!error) {
 							setUserId('undefined');
