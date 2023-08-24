@@ -51,8 +51,6 @@ export default function MongooseAdapter() {
 			return Users.findByIdAndDelete(userId);
 		},
 		async linkAccount(data) {
-			console.log('%c << ▶️ linkAccount >>', 'color: white; font-size: 16px');
-
 			await connectMongo();
 			return await Accounts.create(data);
 		},
@@ -69,8 +67,6 @@ export default function MongooseAdapter() {
 			return Sessions.create(data);
 		},
 		async getSessionAndUser(sessionToken) {
-			console.log('%c << ▶️ getSessionAndUser >>', 'color: white; font-size: 16px');
-
 			await connectMongo();
 			const session = await Sessions.findOne({sessionToken});
 
@@ -93,12 +89,10 @@ export default function MongooseAdapter() {
 			return Sessions.findOneAndDelete({sessionToken});
 		},
 		async createVerificationToken(data) {
-
 			await connectMongo();
 			return VerificationTokens.create(data);
 		},
 		async useVerificationToken(data) {
-
 			const {identifier, token} = data;
 			await connectMongo();
 			return VerificationTokens.findOne({

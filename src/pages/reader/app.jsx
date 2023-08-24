@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {QrReader} from "react-qr-reader";
 import useReactiveData from "@hooks/useReactiveData";
 import FlexRow from "@components/layouts/FlexRow";
-import Ticket from "@components/pages/invitation/Ticket";
 import {useToggle} from "@uidotdev/usehooks";
 import {Button} from "@mui/material";
 
@@ -24,22 +23,24 @@ export default function App({...props}) {
 
 	return (
 		<>
-			<Button onClick={toggleScan} >
+			<Button onClick={toggleScan}>
 				Scan
 			</Button>
 			{scan &&
 				<QrReader
 					onResult={(result, error) => {
 						if (!!result) {
-							setUserId(result?.text);
+							setUserId(result.text);
 							toggleScan();
 						}
-						if (!!error) {
-							setUserId('undefined');
-						}
+						if (!!error) {}
 					}}
 					style={{width: '100%'}}
-				/>
+					constraints={
+						{
+							facingMode: "environment"
+						}
+					}/>
 			}
 			{guest &&
 				<FlexRow>
@@ -47,7 +48,9 @@ export default function App({...props}) {
 						(userId === 'undefined' || userId === '') ?
 							<p>El código QR no es válido</p>
 							:
-							<Ticket guest={guest} updateGuest={updateGuestsData}/>
+							<p>
+								json.stringify(guest)
+							</p>
 					}
 				</FlexRow>
 			}

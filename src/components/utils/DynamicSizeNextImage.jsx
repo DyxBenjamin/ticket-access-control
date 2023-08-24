@@ -9,7 +9,7 @@ export default function DynamicSizeNextImage({src, width, height, ...props}) {
 			width,
 			height,
 			background: 'gray',
-			position: 'relative'
+			position: 'static',
 		} } >
 			<Box sx = { {
 				position: 'absolute',
