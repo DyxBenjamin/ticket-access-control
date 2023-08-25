@@ -4,11 +4,13 @@ import FlexRow from "@components/layouts/FlexRow";
 import CalculatedSizeImage from "@components/layouts/CalculatedSizeImage";
 import FlexColumn from "@components/layouts/FlexColumn";
 import {Typography} from "@mui/material";
+import {Swiper, SwiperSlide} from "swiper/react";
+import 'swiper/css/effect-coverflow';
+
+import { EffectCoverflow } from 'swiper';
 
 
 export default function Home() {
-
-
 
 
 	return (
@@ -25,7 +27,7 @@ export default function Home() {
 				<FlexRow
 					center
 					sx={{
-						 width: '100vw',
+						width: '100vw',
 						background: 'black',
 						padding: {
 							xs: '8px',
@@ -35,26 +37,73 @@ export default function Home() {
 							xl: '16px 25%',
 						}
 					}}>
-					<FlexColumn className={'container'} sx={{ width: '50%', height:'90%', alignItems:'center', borderRadius:'4px', overflow:'hidden' }} >
-						<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw', borderRadius:'4px', background:'rgba(255,255,255,0.2)'}}>
-							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
-						</FlexColumn>
-						<FlexColumn fullWidth padding={4} >
-							<Typography variant='h5'>Nombre</Typography>
-							<Typography variant='body1'>Author</Typography>
-							<Typography variant='caption'>Caption</Typography>
-						</FlexColumn>
-					</FlexColumn>
-					<FlexColumn className={'container'} sx={{ width: '50%', height:'90%', alignItems:'center', borderRadius:'4px', overflow:'hidden' }} >
-						<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw', borderRadius:'4px', background:'rgba(255,255,255,0.2)'}}>
-							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
-						</FlexColumn>
-						<FlexColumn fullWidth padding={4} >
-							<Typography variant='h5'>Nombre</Typography>
-							<Typography variant='body1'>Author</Typography>
-							<Typography variant='caption'>Caption</Typography>
-						</FlexColumn>
-					</FlexColumn>
+					<Swiper
+						effect={'coverflow'}
+						grabCursor={true}
+						centeredSlides={true}
+						slidesPerView={2}
+						style={{ width:'100%', height:'100%' }}
+						spaceBetween={25}
+						coverflowEffect={{
+							rotate: -10,
+							stretch: 0,
+							depth: 160,
+							modifier: 1,
+							slideShadows: true,
+						}}
+						onSlideChange={() => console.log('slide change')}
+						onSwiper={(swiper) => console.log(swiper)}
+						modules={[EffectCoverflow]}
+					>
+						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
+							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
+								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
+									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
+								</FlexColumn>
+								<FlexColumn fullWidth padding={4}>
+									<Typography variant='h5'>Nombre</Typography>
+									<Typography variant='body1'>Author</Typography>
+									<Typography variant='caption'>Caption</Typography>
+								</FlexColumn>
+							</FlexColumn>
+						</SwiperSlide>
+						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
+							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
+								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
+									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
+								</FlexColumn>
+								<FlexColumn fullWidth padding={4}>
+									<Typography variant='h5'>Nombre</Typography>
+									<Typography variant='body1'>Author</Typography>
+									<Typography variant='caption'>Caption</Typography>
+								</FlexColumn>
+							</FlexColumn>
+						</SwiperSlide>
+						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
+							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
+								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
+									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
+								</FlexColumn>
+								<FlexColumn fullWidth padding={4}>
+									<Typography variant='h5'>Nombre</Typography>
+									<Typography variant='body1'>Author</Typography>
+									<Typography variant='caption'>Caption</Typography>
+								</FlexColumn>
+							</FlexColumn>
+						</SwiperSlide>
+						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
+							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
+								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
+									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
+								</FlexColumn>
+								<FlexColumn fullWidth padding={4}>
+									<Typography variant='h5'>Nombre</Typography>
+									<Typography variant='body1'>Author</Typography>
+									<Typography variant='caption'>Caption</Typography>
+								</FlexColumn>
+							</FlexColumn>
+						</SwiperSlide>
+					</Swiper>
 				</FlexRow>
 
 

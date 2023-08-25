@@ -1,4 +1,5 @@
 import '@styles/globals.css'
+import 'swiper/css';
 import {ThemeProvider} from "@mui/material";
 import defaultTheme from "@styles/themes/defaultTheme";
 import Serverless from "@srclib/devclusters/ServerlessConector";

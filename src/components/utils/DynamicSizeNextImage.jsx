@@ -16,6 +16,8 @@ export default function DynamicSizeNextImage({src, width, height, ...props}) {
 				height: '100%',
 				boxShadow: '4px 4px 10px rgba(0,0,0,0.4)',
 				zIndex: 1,
+				borderRadius: '12px',
+				overflow: 'hidden',
 				"& span": {
 					position: 'static !important',
 				}
