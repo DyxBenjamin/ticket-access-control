@@ -1,5 +1,5 @@
 import {Box} from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/Image";
 import React from "react";
 
 
@@ -12,18 +12,22 @@ export default function DynamicSizeNextImage({src, width, height, ...props}) {
 			position: 'static',
 		} } >
 			<Box sx = { {
-				position: 'absolute',
+				position: 'relative',
 				width: '100%',
 				height: '100%',
-				zIndex: 1
+				zIndex: 1,
+				"& span": {
+					position: 'static !important',
+				}
 			} } >
 				<Image
 					src = {src}
-					layout = 'fill'
-					objectFit = 'cover'
+					layout = 'responsive'
+					objectFit = 'contain'
 					alt = 'Descripción de la imagen'
 					priority
-					{...props}
+					width = { width }
+					height = { height }
 				/>
 			</Box >
 		</Box>

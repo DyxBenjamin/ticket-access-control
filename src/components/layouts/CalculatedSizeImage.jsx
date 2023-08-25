@@ -1,8 +1,9 @@
 import ImageDimensionProvider from "@components/utils/ImageDimensionProvider";
-import {Box} from "@mui/material";
 import DimensionProvider from "@components/utils/DimensionProvider";
-import React, {useMemo} from "react";
+import React from "react";
+import DynamicSizeNextImage from "@components/utils/DynamicSizeNextImage";
 import Image from "next/image";
+import {Box} from "@mui/material";
 
 const Container = ({dimensions: container, item, onClickItem, itemSx, ...props}) => {
 	const {src} = item;
@@ -11,26 +12,32 @@ const Container = ({dimensions: container, item, onClickItem, itemSx, ...props})
 		<ImageDimensionProvider src={src}>
 			{({width, height}) => {
 
-				const orientation = width > height ? 'landscape' : 'portrait';
 				const isSquare = width === height;
 
 				const aspectRatio = width / height;
 
 				const maxWidth = width * (container.height / height);
+				const maxHeight = height * (container.width / width);
 
+				const calculatedPadding = (container.height - maxHeight) / 2;
+
+				console.log('%c << 📌 src >>', 'color: white; font-size: 12px');
+				console.log(src);
+				console.log('%c << 📌 calculatedPadding >>', 'color: white; font-size: 12px');
+				console.log(calculatedPadding);
+				console.log('%c << 📌 container he >>', 'color: white; font-size: 12px');
+				console.log(calculatedPadding * 2);
+				console.log('maxHeight', maxHeight);
+				console.log('container H', container.height);
 
 				const onClick = () => { onClickItem && onClickItem(item);}
 
-				if (isSquare) {
-					return <img src={src} alt="asdas" style={{  width:'100%', height:'100%' }} />
-				}
-				if(orientation === 'portrait'){
-					return <img className={'portait'} src={src} alt="" style={{ width:'100%', maxWidth:`${maxWidth}px`, maxHeight:`${container.height}px`,  aspectRatio }} />
-				}
-				if(orientation === 'landscape'){
-					return <img className={'landscape'} src={src} alt=""  style={{ width:'100%', maxWidth:`${maxWidth}px`, maxHeight:`${container.height}px`, aspectRatio }} />
-				}
 
+				return ( <div style={{width:'100%', height:'100%', maxWidth, maxHeight: `${container.height}px`, padding:`${ calculatedPadding > 0 ? calculatedPadding : 0 }px 0`,}} >
+					<div style={{ width:'100%', height:'100%',background:'red', position:'relative' }} >
+						<DynamicSizeNextImage src={src}  width={'100%'} height={'100%'} />
+					</div>
+				</div>)
 			}}
 		</ImageDimensionProvider>
 	</>

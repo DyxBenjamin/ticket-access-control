@@ -3,7 +3,7 @@ import React from "react";
 import FlexRow from "@components/layouts/FlexRow";
 import CalculatedSizeImage from "@components/layouts/CalculatedSizeImage";
 import FlexColumn from "@components/layouts/FlexColumn";
-import {Box, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 
 
 export default function Home() {
@@ -18,33 +18,55 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 			<main>
-				<FlexColumn gap={2} fullWidth sx={{height:'100vh'}} >
-					<FlexRow sx={{color:'#000' }} >
-						<Typography variant='body1' color={'#000'} >Category</Typography>
-						<Typography variant='body1' color={'#000'} >more</Typography>
-					</FlexRow>
-					<FlexRow sx={{ width:'100%', height:'clamp(600px,35vw,800px)', background:'black', padding:'8px'  }} center >
 
-						<FlexColumn sx={{ height:'100%', width:'50%', border:'1px solid white' }} center >
-							<FlexColumn sx={{ height:'70%', width:'100%' }} >
-								<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
-							</FlexColumn>
+				<FlexRow
+					sx={{
+						height: 'clamp(35vh,55vw,60vh)', width: '100vw', background: 'black', padding: {
+							xs: '8px',
+							sm: '16px',
+							md: '32px',
+						}
+					}}>
+					<FlexColumn className={'container'} sx={{ width: '50%',border:'1px solid blue', padding:'8px', gap:'16px', alignItems:'center' }} >
+						<FlexColumn className={'content'} sx={{height: '90cqw', width: '90cqw', border: '1px solid white', }}>
+							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
+						</FlexColumn>
+						<FlexColumn>
 							<Typography variant='body1'>Nombre</Typography>
 							<Typography variant='body1'>Nombre</Typography>
 							<Typography variant='body1'>Nombre</Typography>
 						</FlexColumn>
-						<FlexColumn sx={{ height:'100%', width:'50%', border:'1px solid white'  }} center >
-							<FlexColumn sx={{ height:'70%', width:'100%',  }} >
+					</FlexColumn>
+					<FlexColumn className={'container'} sx={{ width: '50%',border:'1px solid blue', padding:'8px', gap:'16px', alignItems:'center' }} >
+						<FlexColumn className={'content'} sx={{height: '90cqw', width: '90cqw', border: '1px solid white', }}>
 							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
-							</FlexColumn>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
-
 						</FlexColumn>
+						<FlexColumn>
+							<Typography variant='body1'>Nombre</Typography>
+							<Typography variant='body1'>Nombre</Typography>
+							<Typography variant='body1'>Nombre</Typography>
+						</FlexColumn>
+					</FlexColumn>
+				</FlexRow>
 
-					</FlexRow>
-				</FlexColumn>
+
+				{/*<FlexColumn gap={2} fullWidth sx={{height:'100vh'}} >*/}
+				{/*	<FlexRow sx={{color:'#000' }} >*/}
+				{/*		<Typography variant='body1' color={'#000'} >Category</Typography>*/}
+				{/*		<Typography variant='body1' color={'#000'} >more</Typography>*/}
+				{/*	</FlexRow>*/}
+				{/*	<FlexRow sx={{ width:'100%', height:'clamp(600px,35vw,800px)', background:'black', padding:'8px'  }} center >*/}
+				{/*		<FlexColumn sx={{ height:'100%', width:'50%' }} center >*/}
+				{/*			<FlexColumn sx={{ height:'70%', width:'100%', border:'1px solid white'   }} >*/}
+				{/*				<CalculatedSizeImage item={{src: ""}}/>*/}
+				{/*			</FlexColumn>*/}
+				{/*			<Typography variant='body1'>Nombre</Typography>*/}
+				{/*			<Typography variant='body1'>Nombre</Typography>*/}
+				{/*			<Typography variant='body1'>Nombre</Typography>*/}
+				{/*		</FlexColumn>*/}
+
+				{/*	</FlexRow>*/}
+				{/*</FlexColumn>*/}
 			</main>
 		</>
 	)

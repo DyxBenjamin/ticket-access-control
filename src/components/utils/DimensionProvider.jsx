@@ -32,7 +32,7 @@ function DimensionProvider(WrappedComponent) {
 		}, []);
 
 		return (
-			<div className={'123333'} ref={containerRef} style={{ width:'100%', height:'100%', display:'grid', placeContent:'center', overflow:'hidden' }} >
+			<div className={'123333'} ref={containerRef} style={{ width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center' }}>
 				<WrappedComponent {...props} dimensions={dimensions}/>
 			</div>
 		);
