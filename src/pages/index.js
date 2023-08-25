@@ -8,6 +8,9 @@ import {Typography} from "@mui/material";
 
 export default function Home() {
 
+
+
+
 	return (
 		<>
 			<Head>
@@ -20,31 +23,36 @@ export default function Home() {
 			<main>
 
 				<FlexRow
+					center
 					sx={{
-						height: 'clamp(35vh,55vw,60vh)', width: '100vw', background: 'black', padding: {
+						 width: '100vw',
+						background: 'black',
+						padding: {
 							xs: '8px',
 							sm: '16px',
-							md: '32px',
+							md: '16px 5%',
+							lg: '16px 15%',
+							xl: '16px 25%',
 						}
 					}}>
-					<FlexColumn className={'container'} sx={{ width: '50%',border:'1px solid blue', padding:'8px', gap:'16px', alignItems:'center' }} >
-						<FlexColumn className={'content'} sx={{height: '90cqw', width: '90cqw', border: '1px solid white', }}>
+					<FlexColumn className={'container'} sx={{ width: '50%', height:'90%', alignItems:'center', borderRadius:'4px', overflow:'hidden' }} >
+						<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw', borderRadius:'4px', background:'rgba(255,255,255,0.2)'}}>
 							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
 						</FlexColumn>
-						<FlexColumn>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
+						<FlexColumn fullWidth padding={4} >
+							<Typography variant='h5'>Nombre</Typography>
+							<Typography variant='body1'>Author</Typography>
+							<Typography variant='caption'>Caption</Typography>
 						</FlexColumn>
 					</FlexColumn>
-					<FlexColumn className={'container'} sx={{ width: '50%',border:'1px solid blue', padding:'8px', gap:'16px', alignItems:'center' }} >
-						<FlexColumn className={'content'} sx={{height: '90cqw', width: '90cqw', border: '1px solid white', }}>
+					<FlexColumn className={'container'} sx={{ width: '50%', height:'90%', alignItems:'center', borderRadius:'4px', overflow:'hidden' }} >
+						<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw', borderRadius:'4px', background:'rgba(255,255,255,0.2)'}}>
 							<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
 						</FlexColumn>
-						<FlexColumn>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
-							<Typography variant='body1'>Nombre</Typography>
+						<FlexColumn fullWidth padding={4} >
+							<Typography variant='h5'>Nombre</Typography>
+							<Typography variant='body1'>Author</Typography>
+							<Typography variant='caption'>Caption</Typography>
 						</FlexColumn>
 					</FlexColumn>
 				</FlexRow>

@@ -7,14 +7,8 @@ function DimensionProvider(WrappedComponent) {
 
 		useEffect(() => {
 			function updateDimensions() {
-				console.log('%c << ▶️ updateDimensions >>', 'color: white; font-size: 16px');
-
-				console.log('%c << 📌 containerRef >>', 'color: white; font-size: 12px');
-				console.log(containerRef);
 				if (containerRef.current) {
-					console.log('%c << ▶️ if >>', 'color: white; font-size: 16px');
 					const { offsetWidth, offsetHeight } = containerRef.current;
-
 					setDimensions({ width: offsetWidth, height: offsetHeight });
 				}
 			}
