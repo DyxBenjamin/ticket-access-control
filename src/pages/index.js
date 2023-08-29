@@ -8,9 +8,50 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/effect-coverflow';
 
 import { EffectCoverflow } from 'swiper';
+import DynamicSizeNextImage from "@components/utils/DynamicSizeNextImage";
+import ImagesList from "@components/layouts/ImagesList";
 
 
 export default function Home() {
+
+	const [images, setImages] = React.useState([
+		{
+			title:'Title',
+			src:'https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg',
+		},
+		{
+			title:'Title',
+			src:'https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg',
+		},
+
+		{
+			title:'Title',
+			src: 'https://pragmatic-package-frkme.ampt.app/public/e54ea4fa-cd5b-4f68-bbc8-6273f956df07/Ice%20Fire.jpg'
+		},
+		{
+			title:'Title',
+			src: 'https://pragmatic-package-frkme.ampt.app/public/30cb8558-4590-4e14-8b98-64fe553ae638/light.jpg'
+		},
+	]);
+
+	const images2 = [
+		{
+			title:'Title',
+			src: 'https://pragmatic-package-frkme.ampt.app/public/30cb8558-4590-4e14-8b98-64fe553ae638/light.jpg'
+		},
+		{
+			title:'Title',
+			src:'https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg',
+		},
+		{
+			title:'Title',
+			src: 'https://pragmatic-package-frkme.ampt.app/public/e54ea4fa-cd5b-4f68-bbc8-6273f956df07/Ice%20Fire.jpg'
+		},
+		{
+			title:'Title',
+			src:'https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg',
+		},
+	]
 
 
 	return (
@@ -23,112 +64,118 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 			<main>
-
-				<FlexRow
-					center
-					sx={{
-						width: '100vw',
-						background: 'black',
-						padding: {
-							xs: '8px',
-							sm: '16px',
-							md: '16px 5%',
-							lg: '16px 10%',
-							xl: '16px 20%',
-						}
-					}}>
-					<Swiper
-						effect={'coverflow'}
-						grabCursor={true}
-						centeredSlides={true}
-						slidesPerView={3}
-						style={{ width:'100%', height:'100%' }}
-						spaceBetween={25}
-						coverflowEffect={{
-							rotate: -5,
-							stretch: 0,
-							depth: 160,
-							modifier: 1,
-							slideShadows: false,
-						}}
-						onSlideChange={() => console.log('slide change')}
-						onSwiper={(swiper) => console.log(swiper)}
-						modules={[EffectCoverflow]}
-					>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-						<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >
-							<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>
-								<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>
-									<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>
-								</FlexColumn>
-								<FlexColumn fullWidth padding={4}>
-									<Typography variant='h5'>Nombre</Typography>
-									<Typography variant='body1'>Author</Typography>
-									<Typography variant='caption'>Caption</Typography>
-								</FlexColumn>
-							</FlexColumn>
-						</SwiperSlide>
-					</Swiper>
+				<FlexRow>
+					<ImagesList list={images} />
+					<ImagesList list={images2} />
+					<ImagesList list={images} />
 				</FlexRow>
+
+
+				{/*<FlexRow*/}
+				{/*	center*/}
+				{/*	sx={{*/}
+				{/*		width: '100vw',*/}
+				{/*		background: 'black',*/}
+				{/*		padding: {*/}
+				{/*			xs: '8px',*/}
+				{/*			sm: '16px',*/}
+				{/*			md: '16px 5%',*/}
+				{/*			lg: '16px 0%',*/}
+				{/*			xl: '16px 0%',*/}
+				{/*		}*/}
+				{/*	}}>*/}
+				{/*	<Swiper*/}
+				{/*		effect={'coverflow'}*/}
+				{/*		grabCursor={true}*/}
+				{/*		centeredSlides={true}*/}
+				{/*		slidesPerView={2}*/}
+				{/*		style={{ width:'100%', height:'100%' }}*/}
+				{/*		spaceBetween={10}*/}
+				{/*		coverflowEffect={{*/}
+				{/*			rotate: -10,*/}
+				{/*			stretch: -40,*/}
+				{/*			depth: 360,*/}
+				{/*			modifier: 1,*/}
+				{/*			slideShadows: false,*/}
+				{/*		}}*/}
+				{/*		onSlideChange={() => console.log('slide change')}*/}
+				{/*		onSwiper={(swiper) => console.log(swiper)}*/}
+				{/*		modules={[EffectCoverflow]}*/}
+				{/*	>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'80%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/06fa89b0-a170-4ebb-8b4d-a9986740f4df/Vertical-art.jpeg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*		<SwiperSlide style={{ width:'100%', height:'100%', display:'flex', justifyContent:'center' }} >*/}
+				{/*			<FlexColumn className={'container'} sx={{width: '100%', height: '100%', alignItems: 'center', borderRadius: '4px', overflow: 'hidden'}}>*/}
+				{/*				<FlexColumn className={'content'} sx={{height: '100cqw', width: '100cqw'}}>*/}
+				{/*					<CalculatedSizeImage item={{src: "https://pragmatic-package-frkme.ampt.app/public/ddcf310c-a7aa-4aac-a818-e74436a665e6/wind.jpg"}}/>*/}
+				{/*				</FlexColumn>*/}
+				{/*				<FlexColumn fullWidth padding={4}>*/}
+				{/*					<Typography variant='h5'>Nombre</Typography>*/}
+				{/*					<Typography variant='body1'>Author</Typography>*/}
+				{/*					<Typography variant='caption'>Caption</Typography>*/}
+				{/*				</FlexColumn>*/}
+				{/*			</FlexColumn>*/}
+				{/*		</SwiperSlide>*/}
+				{/*	</Swiper>*/}
+				{/*</FlexRow>*/}
 
 
 				{/*<FlexColumn gap={2} fullWidth sx={{height:'100vh'}} >*/}
